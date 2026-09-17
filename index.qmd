@@ -1,0 +1,3 @@
+# Baseball Through Data
+
+Welcome to an exploration of Major League Baseball history through data. This site uses the Lahman database to uncover stories about the players, teams, and seasons that shaped the game.

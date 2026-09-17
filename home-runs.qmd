@@ -1,0 +1,47 @@
+```{r}
+#| cache: true
+#| message: false
+library(tidyverse)
+library(Lahman)
+
+hr_by_season <- Teams |>
+	group_by(yearID) |>
+	summarise(
+		total_home_runs = sum(HR, na.rm = TRUE),
+		total_team_games = sum(G, na.rm = TRUE),
+		.groups = "drop"
+	) |>
+	mutate(
+		home_runs_per_game = total_home_runs / total_team_games,
+		shortened_season = yearID %in% c(1918, 1919, 1981, 1994, 1995, 2020),
+		season_type = if_else(shortened_season, "Shortened season", "Full season")
+	)
+```
+
+```{r}
+hr_by_season |>
+	filter(yearID %in% c(1918, 1919, 1981, 1994, 1995, 2020)) |>
+	arrange(yearID) |>
+	print()
+
+ggplot(hr_by_season, aes(x = yearID, y = home_runs_per_game)) +
+	geom_line(color = "gray70") +
+	geom_point(aes(color = season_type), size = 2.25) +
+	scale_color_manual(
+		values = c("Full season" = "gray40", "Shortened season" = "firebrick"),
+		name = "Season type"
+	) +
+	labs(
+		title = "Home runs per team-game by season",
+		x = "Season",
+		y = "Home runs per team-game",
+		caption = "Shortened seasons are highlighted in red. Source: Lahman database."
+	) +
+	theme_minimal() +
+	theme(
+		legend.position = "bottom",
+		plot.title = element_text(face = "bold")
+	)
+```
+
+# Home runs

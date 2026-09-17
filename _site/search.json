@@ -1,0 +1,16 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Baseball",
+    "section": "",
+    "text": "Baseball"
+  },
+  {
+    "objectID": "home-runs.html",
+    "href": "home-runs.html",
+    "title": "Home runs",
+    "section": "",
+    "text": "# A tibble: 6 × 6\n  yearID total_home_runs total_team_games home_runs_per_game shortened_season\n   &lt;int&gt;           &lt;int&gt;            &lt;int&gt;              &lt;dbl&gt; &lt;lgl&gt;           \n1   1918             265             2262              0.117 TRUE            \n2   1919             510             2468              0.207 TRUE            \n3   1981            1781             2788              0.639 TRUE            \n4   1994            3306             3200              1.03  TRUE            \n5   1995            4081             4034              1.01  TRUE            \n6   2020            2304             1796              1.28  TRUE            \n# ℹ 1 more variable: season_type &lt;chr&gt;\n\n\n\n\n\n\n\n\n\n\nHome runs"
+  }
+]
